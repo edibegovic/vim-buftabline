@@ -211,6 +211,6 @@ if v:version < 703
 		let src = substitute(src, 'strwidth(strtrans(\([^)]\+\)))', 'strlen(substitute(\1, ''\p\|\(.\)'', ''x\1'', ''g''))', 'g')
 		return src
 	endfunction
-	exe "delfunction buftabline#render\n" . s:transpile()
+	exe "delfunction buftabline#render\n\n" . s:transpile()
 	delfunction s:transpile
 endif
