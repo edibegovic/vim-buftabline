@@ -182,7 +182,7 @@ function! buftabline#update(zombie)
 	elseif 2 == g:buftabline_show
 		set showtabline=2
 	endif
-	set tabline=%!buftabline#render()
+	set tabline=string(buftabline#render())
 endfunction
 
 augroup BufTabLine
