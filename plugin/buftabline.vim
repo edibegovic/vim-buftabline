@@ -165,7 +165,7 @@ function! buftabline#render()
 	let swallowclicks = '%'.(1 + tabpagenr('$')).'X'
 	return s:tablineat
 		\ ? join(map(tabs,'"%#BufTabLine".v:val.hilite."#" . "%".v:val.num."@'.s:sid.'switch_buffer@" . strtrans(v:val.label)'),'') . '%#BufTabLineFill#' . swallowclicks
-		\ : swallowclicks . join(map(tabs,'"%#BufTabLine".v:val.hilite."#" . strtrans(v:val.label)'),'') . '%#BufTabLineFill#'
+		\ : swallowclicks . join(map(tabs,'"%#BufTabLine".v:val.hilite."#" . strtrans(v:val.label)'),'') . '%#BufTabLineFill#' . '\n'
 endfunction
 
 function! buftabline#update(zombie)
@@ -182,7 +182,7 @@ function! buftabline#update(zombie)
 	elseif 2 == g:buftabline_show
 		set showtabline=2
 	endif
-	set tabline=%!buftabline#render() "\n does this work"
+	set tabline=%!buftabline#render()
 endfunction
 
 augroup BufTabLine
